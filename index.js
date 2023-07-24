@@ -56,6 +56,13 @@ dbConnect();
     const result = await collegesCollection.findOne(query);
     res.send(result)
   })
+  app.get('/addmissionDetails/:email', async(req,res)=>{
+    const email = req.params.email;
+    const query = {email:email};
+    const result = await admissionDetailsCollection.find(query).toArray();
+    res.send(result)
+
+  })
 app.get('/', (req,res)=>{
     res.send(`Welcome to our application`)
 })
